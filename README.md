@@ -1,57 +1,19 @@
-# [Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable)
+# How to use it
 
-> **Open-Source Admin Dashboard** coded in **Django Framework** by **AppSeed** [Web App Generator](https://appseed.us/app-generator) - Features:
 
-- Sample UI Kit: **GradientAble Dashboard** (Lite Version) provided by **CodedThemes**
-- UI-Ready app, SQLite Database, Django Native ORM
-- Modular design, clean code-base
-- Session-Based Authentication, Forms validation
-- Deployment scripts: Docker, Gunicorn / Nginx
-- **MIT License**
-- Free support via **Github** issues tracker
-- Paid 24/7 Live Support via [Discord](https://discord.gg/fZC6hup).
+pip3 install -r requirements.txt
 
-> Links
+pip install "django-pyodbc-azure<2.1"
 
-- [Django Dashboard Gradient Able](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Official product page
-- [Django Dashboard Gradient Able - Demo](https://django-dashboard-gradientable.appseed.us/) - LIVE App
-- More [Django Dashboards](https://appseed.us/admin-dashboards/django) - index hosted by **AppSeed**
-- More [Admin Dashboards](https://appseed.us/admin-dashboards) - index hosted by **AppSeed**
+python manage.py makemigrations
 
-<br />
+python manage.py migrate
 
-## How to use it
+python manage.py createsuperuser
 
-```bash
-$ # Get the code
-$ git clone https://github.com/app-generator/django-dashboard-gradientable.git
-$ cd django-dashboard-gradientable
-$
-$ # Virtualenv modules installation (Unix based systems)
-$ virtualenv env
-$ source env/bin/activate
-$
-$ # Virtualenv modules installation (Windows based systems)
-$ # virtualenv env
-$ # .\env\Scripts\activate
-$
-$ # Install modules - SQLite Storage
-$ pip3 install -r requirements.txt
-$
-$ # Create tables
-$ python manage.py makemigrations
-$ python manage.py migrate
-$
-$ # Start the application (development mode)
-$ python manage.py runserver # default port 8000
-$
-$ # Start the app - custom port
-$ # python manage.py runserver 0.0.0.0:<your_port>
-$
-$ # Access the web app in browser: http://127.0.0.1:8000/
-```
+python manage.py runserver
 
-> Note: To use the app, please access the registration page and create a new user. After authentication, the app will unlock the private pages.
+http://127.0.0.1:8000/ 
 
 <br />
 
