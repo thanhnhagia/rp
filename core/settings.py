@@ -77,8 +77,8 @@ DATABASES = {
         'NAME': 'DB_AN',
         'HOST': '10.96.30.13',
         'PORT': '1433',
-        'USER': 'Antt',
-        'PASSWORD': 'An@54321'
+        'USER': '',
+        'PASSWORD': ''
     },
 }
 # set this to False if you want to turn off pyodbc's connection pooling
