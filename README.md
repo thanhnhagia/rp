@@ -5,6 +5,8 @@ pip3 install -r requirements.txt
 
 pip install "django-pyodbc-azure<2.1"
 
+pip install numpy==1.19.3
+
 python manage.py makemigrations
 
 python manage.py migrate
