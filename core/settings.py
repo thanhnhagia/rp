@@ -73,9 +73,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'DB_AN',
+        'HOST': '10.96.30.13',
+        'PORT': '1433',
+        'USER': 'Antt',
+        'PASSWORD': 'An@54321'
+    },
 }
 
 # Password validation
