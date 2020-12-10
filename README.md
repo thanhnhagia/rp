@@ -1,5 +1,20 @@
 # How to use it
-
+SQL SerVer
+Download: https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-2017
+Edit setting.py: 
+DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'Name DB your',
+        'HOST': 'Host your',
+        'PORT': '1433',
+        'USER': 'username',
+        'PASSWORD': 'pass',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
+    },
+}
 
 pip3 install -r requirements.txt
 
