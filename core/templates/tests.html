@@ -1,0 +1,167 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% load set_var %}
+{% block title %} Sample Page {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link href="{% static 'assets/css/plugins/css_table.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/function/pop_up.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+{% block content %}
+
+	<!-- [ Main Content ] start -->
+	<div class="pcoded-main-container">
+		<div class="pcoded-content">
+			<!-- [ breadcrumb ] start -->
+			<div class="page-header">
+				<div class="page-block">
+					<div class="row align-items-center">
+						<div class="col-md-12">
+							<div class="page-header-title">
+								<h5 class="m-b-10">Test</h5>
+							</div>
+							<ul class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+								<li class="breadcrumb-item"><a href="#!">Test</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- [ breadcrumb ] end -->
+			{% include 'includes/tag_bar.html' %}
+			{% include 'includes/popup_savepage.html' %}
+
+
+			<!-- [ Create Cart] start -->
+			<div class="row">
+				<!-- [ Cart ] start -->
+        <div class="col-sm-12">
+            <div class="card table-card">
+                <div class="card-header">
+                    <h4>PTM BRCD</h4>
+                    <div class="card-header-right">
+                        <div class="btn-group card-option">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="feather icon-more-horizontal"></i>
+                            </button>
+                            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div class="table-responsive">
+                                <div class="customer-scroll" style="height:420px;position:relative;">
+                                    <table role="table" class="table">
+                                        <thead>
+                                            <tr>
+                                              {% for row in field_names %}
+                                                  <th role="columnheader">{{row.0}}</th>
+                                              {% endfor %}
+                                            </tr>
+                                        </thead>
+																				{% for pbh in pbh %}
+                                        <tbody role="rowgroup">
+																					<!-- chay vo day khi nao khac PBH -->
+                                          <tr role="row" class="parent" id="row456" title="Click to expand/collapse" style="cursor: pointer;">
+	                                          <td rowspan="{{results|length}}" role="cell" data-title="" class="slider">
+	                                            <span>[+]</span>{{ pbh }}</td>
+	                                          <td ></td>
+																						<td>sum</td>
+																						<td>sum</td>
+																						<td>sum</td>
+	                                          <td>sum</td>
+                                          </tr>
+																					<!-- chay vo day khi nao khac PBH -->
+																					{% for row in results %}
+																					{% if row.0 == pbh %}
+																					<tr class="child-row456" style="display: none;">
+                                              <td>{{row.1}}</td>
+                                              <td>{{row.2}}</td>
+																							<td>{{row.3}}</td>
+                                              <td>{{row.4}}</td>
+																							<td>{{row.5}}</td>
+                                          </tr>
+																					{% endif %}
+																					{% endfor %}
+                                        </tbody>
+																				{% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+				<!-- [ Cart ] end -->
+			</div>
+			<!-- [ Create Cart ] end -->
+		</div>
+	</div>
+	<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript">
+  $('tr.parent').click(function() {
+   this.toggle = !this.toggle;
+   $(this).children(".slider").children("span").text(this.toggle ? "[-]" : "[+]");
+ });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('tr.parent')
+                .css("cursor", "pointer")
+                .attr("title", "Click vào đây để xem")
+                .click(function () {
+                    $(this).siblings('.child-' + this.id).toggle();
+                });
+            $('tr[@class^=child-]').hide().children('td');
+
+
+    });
+    </script>
+
+<!-- sum -->
+<script src="htpps://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var empsalary;
+		var totalsum=0;
+		$('td:nth-child(3)').each(function(){
+			empsalary=$(this).html();
+			totalsalary+=parseInt(empsalary);
+			$('#totsalary').text(totalsalary);
+		}
+
+		);
+	}
+	);
+</script>
+
+
+<script src="{% static 'assets/js/function/pop_up.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(".name").on('input', function(e) {
+	  $(".url").val( $(this).val().replace(/[^a-zA-Z0-9 -]/g, '').replace(/ /g, "-").toLowerCase() );
+	});
+</script>
+{% endblock javascripts %}
