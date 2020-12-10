@@ -1,0 +1,45 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Sample Page {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link href="{% static 'assets/css/plugins/css_table.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/function/pop_up.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+{% block content %}
+
+	<!-- [ Main Content ] start -->
+	<div class="pcoded-main-container">
+		<div class="pcoded-content">
+			<!-- [ breadcrumb ] start -->
+
+			<!-- [ breadcrumb ] end -->
+			{% include 'includes/tag_bar.html' %}
+      {% include 'includes/popup_savepage.html' %}
+
+
+			<!-- [ Create Cart] start -->
+			<div class="row">
+				<!-- [ Cart ] start -->
+
+				<!-- [ Cart ] end -->
+			</div>
+			<!-- [ Create Cart ] end -->
+		</div>
+	</div>
+	<!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script src="{% static 'assets/js/function/pop_up.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(".name").on('input', function(e) {
+	  $(".url").val( $(this).val().replace(/[^a-zA-Z0-9 -]/g, '').replace(/ /g, "-").toLowerCase() );
+	});
+</script>
+{% endblock javascripts %}
