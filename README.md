@@ -1,6 +1,8 @@
 # How to use it
 SQL SerVer
+
 Download: https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-2017
+
 Edit setting.py: 
 DATABASES = {
     'default': {
