@@ -17,4 +17,5 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('tests', views.tests, name='tests'),
     path('new_page', views.new_page, name='new_page'),
+    path('<slug:slug>/', views.dashboard_detail, name='dashboard_detail'),
 ]

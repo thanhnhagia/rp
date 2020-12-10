@@ -74,3 +74,9 @@ def new_page(request):
     context = {
     }
     return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def dashboard_detail(request, slug):
+    post = Dashboard.objects.get(slug=slug)
+    html_template = loader.get_template( 'dashboard_detail.html' )
+    return render(request, 'dashboard_detail.html', {'dashboard': dashboard})
